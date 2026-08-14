@@ -1,0 +1,34 @@
+[build-system]
+requires = ["maturin>=1.7,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "customs-lint"
+version = "0.1.0"
+description = "Python import-boundary linter"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "Kenneth Bongort" }]
+keywords = ["lint", "python", "imports", "lsp"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Rust",
+    "Topic :: Software Development :: Quality Assurance",
+]
+
+[project.urls]
+Homepage = "https://github.com/kbongort/customs-lint"
+Repository = "https://github.com/kbongort/customs-lint"
+
+[dependency-groups]
+dev = ["maturin>=1.7,<2.0"]
+
+[tool.maturin]
+manifest-path = "crates/customs/Cargo.toml"
+bindings = "bin"
+module-name = "customs"

@@ -1,0 +1,54 @@
+{
+  "name": "customs",
+  "displayName": "Customs",
+  "description": "Python import-boundary linter",
+  "version": "0.1.0",
+  "publisher": "Kenneth Bongort",
+  "icon": "icon.png",
+  "license": "LICENSE.txt",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kbongort/customs-lint"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Linters"],
+  "extensionDependencies": ["ms-python.python"],
+  "activationEvents": ["onLanguage:python"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Customs",
+      "properties": {
+        "customs.path": {
+          "type": "string",
+          "default": "",
+          "description": "Absolute path to the customs binary. Leave empty to use customs from the selected Python interpreter."
+        },
+        "customs.lintDebounceMs": {
+          "type": "number",
+          "default": 300,
+          "minimum": 0,
+          "description": "Debounce in milliseconds for lint-on-edit."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "esbuild src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node --sourcemap",
+    "watch": "npm run compile -- --watch",
+    "vscode:prepublish": "npm run compile",
+    "package": "vsce package"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.2.0",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.6.0"
+  }
+}

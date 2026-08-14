@@ -1,0 +1,14 @@
+/target
+**/*.rs.bk
+.idea/
+.vscode/
+*.vsix
+node_modules/
+editors/vscode/out/
+editors/vscode/*.vsix
+__pycache__/
+.pytest_cache/
+*.egg-info/
+dist/
+.venv/
+venv/

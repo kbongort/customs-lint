@@ -1,0 +1,20 @@
+[project]
+name = "basic-fixture"
+version = "0.0.0"
+
+[tool.customs]
+src-roots = ["src", "."]
+ignore = [
+    "examples",
+    "tests",
+]
+
+[tool.customs.module.my-service]
+module = "my_project.apps.service"
+
+[tool.customs.module.libraries-utils]
+module = "my_project.libraries.utils"
+allow = [
+    "$submodules",
+    "my_project.apps.service",
+]
