@@ -8,7 +8,8 @@ version = "0.1.1"
 description = "Python import-boundary linter"
 readme = "README.md"
 requires-python = ">=3.8"
-license = { text = "MIT" }
+license = "MIT"
+license-files = ["LICENSE.txt"]
 authors = [{ name = "Kenneth Bongort" }]
 keywords = ["lint", "python", "imports", "lsp"]
 classifiers = [
@@ -32,3 +33,4 @@ dev = ["maturin>=1.7,<2.0"]
 manifest-path = "crates/customs/Cargo.toml"
 bindings = "bin"
 module-name = "customs"
+include = [{ path = "LICENSE.txt", format = "sdist" }]
