@@ -19,7 +19,7 @@ pub struct Violation {
 impl Violation {
     pub fn message(&self) -> String {
         format!(
-            "Customs: Forbidden import of {} [{}]",
+            "Forbidden import of {} [{}]",
             self.controlled_module, self.rule_name
         )
     }
@@ -216,7 +216,7 @@ allow = [
         let msgs = messages(&file, source, &root, &prd_config());
         assert_eq!(
             msgs,
-            vec!["Customs: Forbidden import of my_project.apps.service [my-service]"]
+            vec!["Forbidden import of my_project.apps.service [my-service]"]
         );
     }
 
@@ -239,14 +239,14 @@ allow = [
     }
 
     #[test]
-    fn outsider_cannot_import_launchdarkly() {
+    fn outsider_cannot_import_utils() {
         let root = temp_tree();
         let file = write_py(&root, "src/my_project/other.py", "");
         let source = "import my_project.libraries.utils.client\n";
         let msgs = messages(&file, source, &root, &prd_config());
         assert_eq!(
             msgs,
-            vec!["Customs: Forbidden import of my_project.libraries.utils [libraries-utils]"]
+            vec!["Forbidden import of my_project.libraries.utils [libraries-utils]"]
         );
     }
 
@@ -286,7 +286,7 @@ allow = ["$submodules", "my_project.other"]
         let msgs = messages(&file, source, &root, &config);
         assert_eq!(
             msgs,
-            vec!["Customs: Forbidden import of my_project.services [services]"]
+            vec!["Forbidden import of my_project.services [services]"]
         );
     }
 
@@ -341,7 +341,7 @@ allow = ["pkg.trusted"]
         let msgs = messages(&file, source, &root, &config);
         assert_eq!(
             msgs,
-            vec!["Customs: Forbidden import of pkg.locked [locked]"]
+            vec!["Forbidden import of pkg.locked [locked]"]
         );
     }
 }

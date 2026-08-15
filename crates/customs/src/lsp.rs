@@ -127,7 +127,7 @@ fn violation_to_diagnostic(v: &Violation, source: &str) -> Diagnostic {
         },
         severity: Some(DiagnosticSeverity::ERROR),
         source: Some("customs".to_string()),
-        message: format!("Customs: Forbidden import of {}", v.controlled_module),
+        message: format!("Forbidden import of {}", v.controlled_module),
         code: Some(NumberOrString::String(v.rule_name.clone())),
         code_description: None,
         related_information: None,

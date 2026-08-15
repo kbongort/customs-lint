@@ -3,7 +3,7 @@
   "displayName": "Customs",
   "description": "Python import-boundary linter",
   "version": "0.1.0",
-  "publisher": "Kenneth Bongort",
+  "publisher": "KennethBongort",
   "icon": "icon.png",
   "license": "LICENSE.txt",
   "repository": {
